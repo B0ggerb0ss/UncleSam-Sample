@@ -3,4 +3,11 @@ version: 0.2
 phases:
   build:
     commands:
-      - aws s3 sync s3://myawsbucket /var/www/html --region us-east-1
+    - echo "This is build phase... Zipping my webpage"
+ 
+  post_build:
+    commands:
+    - echo "Deployed to S3"
+artifacts:
+  files:
+    - '**/*'
